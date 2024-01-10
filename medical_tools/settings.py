@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # settings.py
-AUTH_USER_MODEL = 'auth_app.Doctor'
+AUTH_USER_MODEL = 'auth_app.Employee'
 
 
 

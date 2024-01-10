@@ -4,7 +4,7 @@ from django.db import models
 
 import uuid
 
-class Doctor(AbstractBaseUser, PermissionsMixin):
+class Employee(AbstractBaseUser, PermissionsMixin):
     key = models.CharField(max_length=100, unique=True, null=False, default=uuid.uuid4)
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=150)

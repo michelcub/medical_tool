@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 
 
-from .models import Doctor
+from .models import Employee
 
 
 
@@ -31,7 +31,7 @@ def register(request):
         
         hashed_password = make_password(password)
         
-        user = Doctor(email=email, password=hashed_password, name=name, last_name=last_name)
+        user = Employee(email=email, password=hashed_password, name=name, last_name=last_name)
         user.save()
     
     if user:
@@ -45,7 +45,7 @@ def login(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         
-        user = Doctor.objects.get(email=email)
+        user = Employee.objects.get(email=email)
         
         if user.check_password(password):
             login(request, user)
