@@ -1,0 +1,30 @@
+{% extends 'auth/base_auth.html' %}
+
+{% block title %}
+    <title>Recovery</title>
+{% endblock %}
+
+{% block auth_content %}
+    <section class="p-5 mt-5 p-3 container d-flex flex-column align-items-center">
+
+        <h2 class="mt-5 text-info">Recover Password</h2>
+
+        <form method='post' action="{% url 'auth:login' %}" class="w-25 d-flex flex-column gap-2">
+            {% csrf_token %}
+            <div>
+                <label for="" class="form-label">Email</label>
+                <input type="email" name="" id="" class="form-control">
+            </div>
+            <div>
+                <label for="" class="form-label">Password</label>
+                <input type="password" name="" id="" class="form-control">
+            </div>
+            <button class="btn btn-info w-100">Login</button>
+        </form>
+        
+        <div class="d-flex flex-column align-items-center">
+            <a href="{% url 'auth:register' %}" class="text-info">Recover Password</a>
+            <a href="{% url 'auth:recovery' %}" class="text-info">Forgot Password</a>
+        </div>
+    </section>
+{% endblock%}
