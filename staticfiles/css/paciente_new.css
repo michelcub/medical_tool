@@ -1,0 +1,8 @@
+.paciente_new{
+    height: 100vh;
+}
+
+.paciente_new_header{
+    position: sticky;
+    border-bottom: 1px solid #e1dede;
+}

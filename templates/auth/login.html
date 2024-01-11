@@ -12,9 +12,9 @@
         <form method='post' action="{% url 'auth:api_login' %}" class="w-25 d-flex flex-column gap-2">
             {% csrf_token %}
             <label for="" class="form-label">Email</label>
-            <input type="email" name="" id="" class="form-control">
+            <input type="email" name="email" id="" class="form-control">
             <label for="" class="form-label">Password</label>
-            <input type="password" name="" id="" class="form-control">
+            <input type="password" name="password" id="" class="form-control">
             <button class="btn btn-info w-100">Login</button>
         </form>
         

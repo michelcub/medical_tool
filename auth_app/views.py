@@ -1,6 +1,6 @@
-from django.contrib.auth import login
+from django.contrib.auth import login as django_login
 from django.shortcuts import render, redirect
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 
 
 from .models import Employee
@@ -35,26 +35,28 @@ def register(request):
         user.save()
     
     if user:
-        login(request, user)
+        django_login(request)
         return redirect('auth:login')
     
     
 def login(request):
-    user = None
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
         
-        user = Employee.objects.get(email=email)
+        user = Employee.objects.filter(email=email).last()
         
-        if user.check_password(password):
-            login(request, user)
+        if user and user.check_password(password):
+            django_login(request, user)
+            print('Usuario válido')
+            return redirect('app:settings_view')
+        elif user:
+            # Usuario válido pero contraseña incorrecta
+            print('Contraseña incorrecta')
             return redirect('auth:login')
         else:
-            return redirect('auth:login')
+            # Usuario no encontrado, redirigir al registro
+            print('Usuario no encontrado')
+            return redirect('auth:register')
     
-    if user:
-        login(request, user)
-        return redirect('auth:login')
-    
-    return redirect('auth:login')
+    return render(request, 'login.html') 

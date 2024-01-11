@@ -1,0 +1,21 @@
+{% extends 'app/base_app.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>Nuevo Paciente</title>
+{% endblock title %}
+
+{% block libs %}
+    <link rel="stylesheet" href="{% static 'css/paciente_new.css' %}">
+{% endblock libs %}
+
+
+{% block content_app %}
+    <section class="container paciente_new">
+        <div class="p-2 paciente_new_header">
+            <h3>Datos del Paciente</h3>
+        </div>
+    </section>
+{% endblock content_app %}
+```
