@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{% static 'css/base_app.css' %}">
 
 </head>
-<body class="overflow-hidden">
+<body class="overflow-x-hidden">
     <section class="container-fluid ">
         <section class="row-12 text-secondary d-flex border-end">
             <nav class="menu d-flex flex-column d-flex flex-column justify-content-between">
@@ -60,11 +60,11 @@
                     
             </nav>
 
-            <section class="col">
+            <section class="col content_app">
                 {% block content_app %}
                     
                 {% endblock content_app %}
-
+            </section>       
         </section>
     </section>
 </body>

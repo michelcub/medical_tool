@@ -19,3 +19,8 @@ body{
 .icon_menu:hover{
     color: #0DCAF0 !important;
 }
+
+.content_app{
+    height: 100vh;
+    overflow: auto; 
+}
